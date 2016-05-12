@@ -85,11 +85,4 @@ var utils = {};
 		})(document, window);
 	}
 	utils.adaption=adaption;
-<<<<<<< HEAD
-	var a=3;
-
-
-	var b=4;
-=======
->>>>>>> parent of 7cc34de... 新增函数
 })(jQuery);
