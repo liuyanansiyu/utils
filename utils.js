@@ -81,7 +81,6 @@ var utils = {};
 				};
 			if (!doc.addEventListener) return;
 			win.addEventListener(resizeEvt, recalc, false);
-			var a=324;
 			doc.addEventListener('DOMContentLoaded', recalc, false);
 		})(document, window);
 	}
