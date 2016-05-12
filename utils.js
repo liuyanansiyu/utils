@@ -85,5 +85,4 @@ var utils = {};
 		})(document, window);
 	}
 	utils.adaption=adaption;
-	
 })(jQuery);
