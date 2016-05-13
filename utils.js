@@ -3,7 +3,7 @@
  * @type {Object}
  */
 var utils = {};
-(function($) {
+(function() {
 	//将url中的参数格式化为对象
 	function getUrlData() {
 		var args = new Object(); //声明一个空对象
@@ -22,7 +22,7 @@ var utils = {};
 	utils.getUrlData = getUrlData;
 	/**
 	 * [date format]
-	 * @param  {[string]} format [yyyy-MM-dd HH:mm:ss]
+	 * @param  {[string]} format [yyyy-MM-dd hh:mm:ss]
 	 * @return {[type]}        [description]
 	 */
 	Date.prototype.format = function(format) {
@@ -44,18 +44,24 @@ var utils = {};
 						("00" + o[k]).substr(("" + o[k]).length));
 			return format;
 		}
+		// 方法调用
+		// var time1 = new Date().format("yyyy-MM-dd hh:mm:ss");
+		// var time2 = new Date().format("yyyy-MM-dd");
+
 	/**
 	 * [添加trim方法]
 	 * @return {[type]} [description]
 	 */
-	String.prototype.trim = function() {
-		var reg = /(^s\+)|(s\+$)/g;
-		return this.replace(reg, “”);
+	function trim(str) {
+		var reg = /(^\s*)|(\s*$)/g;
+		return str.replace(reg, "");
 	}
+	utils.trim = trim;
+
 	/**
-	* [自适应布局，根据屏幕大小动态给html添加fontsize]
-	* @return {[type]} [description]
-	*/
+	 * [自适应布局，根据屏幕大小动态给html添加fontsize]
+	 * @return {[type]} [description]
+	 */
 	function adaption() {
 		var globalWidth = window.innerWidth;
 		var radixNO = 25 / 750 * globalWidth;
@@ -64,8 +70,8 @@ var utils = {};
 			radixNO = 12.5;
 		}
 
-		var fitStyle = "<style>html{font-size:" + radixNO + "px;}</style>";
-		document.write(fitStyle);
+		/*var fitStyle = "<style>html{font-size:" + radixNO + "px;}</style>";
+		document.write(fitStyle);*/
 
 		(function(doc, win) {
 			var docEl = doc.documentElement,
@@ -84,5 +90,18 @@ var utils = {};
 			doc.addEventListener('DOMContentLoaded', recalc, false);
 		})(document, window);
 	}
-	utils.adaption=adaption;
-})(jQuery);
+	utils.adaption = adaption;
+	//数组去重，返回新数组
+	function getUniqueElm(arr) {
+		var resArr = [];
+		var hash = {};
+		for (var i = 0, len = arr.length; i < len; i++) {
+			if (!hash[arr[i]]) {
+				resArr.push(arr[i]);
+				hash[arr[i]] = 1;
+			}
+		}
+		return resArr;
+	}
+	utils.getUniqueElm = getUniqueElm;
+})();
