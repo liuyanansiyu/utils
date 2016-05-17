@@ -106,7 +106,7 @@ var utils = {};
 	utils.getUniqueElm = getUniqueElm;
 	/**
 	 * [inherit 创建一个以p为原型的对象]
-	 * @param  {[object]} p [原型对象]
+	 * @param  {[object]} p [普通对象]
 	 * @return {[object]}   [继承P的对象]
 	 */
 	function inherit(p) {
