@@ -104,4 +104,26 @@ var utils = {};
 		return resArr;
 	}
 	utils.getUniqueElm = getUniqueElm;
+	/**
+	 * [inherit 创建一个以p为原型的对象]
+	 * @param  {[object]} p [原型对象]
+	 * @return {[object]}   [继承P的对象]
+	 */
+	function inherit(p) {
+		if (p == null) {
+			throw TypeError("原型对象不能为null")
+		}
+		if (Object.creat) {
+			return Object.creat(p)
+		}
+		var t = typeof p;
+		if (t !== "object" && t !== "function") {
+			throw TypeError("必须传入一个对象")
+		}
+
+		function F() {}
+		F.prototype = p;
+		return new F();
+	}
+	utils.inherit = inherit;
 })();
