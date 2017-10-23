@@ -86,7 +86,7 @@ export default class MyUtils {
    * (?=)(?!)是边界匹配
    * @static
    * @param {any} num 
-   * @returns 
+   * @returns string
    * @memberof MyUtils
    */
   static threeNumber(num) {
@@ -110,6 +110,18 @@ export default class MyUtils {
     return function (obj1, obj2) {
       return obj1[prop] > obj2[prop]
     }
+  }
+
+  /**
+   * 数组去重，es6的去重是真的好用
+   * 利用set集合的唯一性
+   * @static
+   * @param {Array[]} arr 
+   * @returns Array[]
+   * @memberof MyUtils
+   */
+  static distinct(arr) {
+    return [...new Set(arr)]
   }
 }
 

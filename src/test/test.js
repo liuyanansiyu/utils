@@ -19,3 +19,6 @@ const compare = [
   { name: 'jack', age: 10 }
 ];
 console.log(compare.sort(myUtils.compare('age'))); 
+
+// distinct
+console.log(myUtils.distinct([1,2,3,3,1]))
