@@ -123,6 +123,27 @@ export default class MyUtils {
   static distinct(arr) {
     return [...new Set(arr)]
   }
+
+  /**
+   * 对象深拷贝
+   * 
+   * @static
+   * @param {object} obj 
+   * @returns object
+   * @memberof MyUtils
+   */
+  static clone(obj) {
+    if (typeof obj === 'object') {
+      let newObj = obj.constructor === 'Array' ? [] : {};
+      for (let key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          typeof obj[key] === 'object' ? newObj[key] = this.clone(obj[key]) : newObj[key] = obj[key];
+        }
+      }
+      return newObj;
+    }
+    return
+  }
 }
 
 // 导出为全局对象

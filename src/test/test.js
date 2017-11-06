@@ -21,4 +21,18 @@ const compare = [
 console.log(compare.sort(myUtils.compare('age'))); 
 
 // distinct
-console.log(myUtils.distinct([1,2,3,3,1]))
+console.log(myUtils.distinct([1,2,3,3,1]));
+
+// clone
+const cloneObj = {
+  name:'lucy',
+  score:[23,34,45],
+  study:{
+    math:'good',
+    lan:['en','cn'],
+  }
+}
+const newCloseObj = myUtils.clone(cloneObj);
+newCloseObj.study.lan[0] = 'jp';
+newCloseObj.name = 'jack';
+console.log(cloneObj,newCloseObj)
